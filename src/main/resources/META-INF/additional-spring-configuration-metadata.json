@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "spring.error.whitelabel.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.error.whitelabel.enabled'"
+  },
+  {
+    "name": "spring.http.multipart.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.http.multipart.enabled'"
+  }
+]}

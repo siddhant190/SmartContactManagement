@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normal/base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Add contact</title>
+<link rel="stylesheet" th:href="@{/css/addContact.css}">
+</head>
+<body>
+	<section>
+	   
+	   
+	   <div class="container">
+	   
+       <input id="register_toggle" type="checkbox">
+      <div class="slider">
+      <form class="form" th:action="@{/user/process-contact}" method="post" th:object="${contact}" enctype="multipart/form-data">
+      <span class="title">Add Contact</span>
+      
+      <div class="form_control">
+        <input required name="name" class="input" type="text">
+        <label class="label">First Name</label>
+      </div>
+      
+      <div class="form_control">
+        <input required name="secondName" class="input" type="text">
+        <label class="label">Last Name</label>
+      </div>
+      <div class="form_control">
+        <input required name="email" class="input" type="email">
+        <label class="label">Email</label>
+      </div>
+       <div class="form_control">
+        <input required name="work" class="input" type="text">
+        <label class="label">Work</label>
+      </div>
+       <div class="form_control">
+        <input required min="10" max="13" name="phone" class="input" type="tel" >
+        <label class="label">Phone</label>
+      </div>
+       <div class="form_control">
+        <textarea required name="description" class="input"></textarea>
+        <label class="label">Contact description</label>
+      </div>
+       <div class="form_control custom-file">
+        <input name="profileImage" class="input" type="file">
+        
+      </div>
+      <button>Add contact</button>
+
+    </form>
+
+    
+    </div>
+</div>
+
+    <!--  text editor like word set id=mytextarea on textarea
+    
+     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+     
+       <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>  -->
+     
+	</section>
+
+
+</body>
+</html>

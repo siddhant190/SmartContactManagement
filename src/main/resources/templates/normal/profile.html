@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normal/base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>User Profile</title>
+</head>
+<body>
+	<section>
+
+<div class="profile-container text-center">
+    <div class="col-md-8">
+        <!-- Column -->
+        <div class="profile-card"> <img class="profile-card-img-top" src="https://i.imgur.com/K7A78We.jpg" alt="Card image cap">
+            <div class="profile-card-body little-profile">
+                <div class="pro-img"><img th:src="@{'/img/'+${user.imageUrl}}" alt="user"></div>
+                <h3 class="m-b-1 mb-2" th:text="${user.name}"></h3>
+                <p class="mb-1 mb-1rem" th:text="${user.about}"></p> 
+                <a th:text="${user.email}" href="#" class="m-t-10 waves-effect waves-dark btn btn-secondary btn-md btn-rounded"></a>
+                <div class="row m-t-20">
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light">User ID</h3><p th:text="${user.id}"></p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light" >Account active</h3><p th:text="${user.enabled}"></p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light" >Role</h3><small th:text="${user.role}"></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+	</section>
+
+
+</body>
+</html>

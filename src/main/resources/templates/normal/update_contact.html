@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+     th:replace="~{normal/base::layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>update contact</title>
+</head>
+<body>
+      <section>
+      
+       <div class="container">
+	   
+       <input id="register_toggle" type="checkbox">
+      <div class="slider">
+      <form class="form" th:action="@{/user/process-update}" method="post" th:object="${contact}" enctype="multipart/form-data">
+      <span class="title">Update Contact</span>
+      
+      <div>
+      <img style="width:150px ;height: 90px; margin: -19px 0px" class="img-fluid" th:src="@{'/img/'+${contact.image}}" alt="" />     
+      </div>
+      <input type="hidden" th:value="${contact.cId}" name="cId" />
+      <div class="form_control">
+        <input th:value="${contact.name}" required name="name" class="input" type="text">
+        <label class="label">Name</label>
+      </div>
+      
+      <div class="form_control">
+        <input th:value="${contact.secondName}" required name="secondName" class="input" type="text">
+        <label class="label">Nick Name</label>
+      </div>
+      <div class="form_control">
+        <input th:value="${contact.email}" required name="email" class="input" type="email">
+        <label class="label">Email</label>
+      </div>
+       <div class="form_control">
+        <input th:value="${contact.work}" required name="work" class="input" type="text">
+        <label class="label">Work</label>
+      </div>
+       <div class="form_control">
+        <input th:value="${contact.phone}" required min="10" max="13" name="phone" class="input" type="tel" >
+        <label class="label">Phone</label>
+      </div>
+       <div class="form_control">
+        <textarea th:text="${contact.description}" required name="description" class="input"></textarea>
+        <label class="label">Contact description</label>
+      </div>
+       <div class="form_control custom-file">
+        <input name="profileImage" class="input" type="file">
+        
+      </div>
+      <button>Save contact</button>
+
+    </form>
+
+    
+    </div>
+</div>
+     
+      </section>
+     
+	
+</body>
+</html>

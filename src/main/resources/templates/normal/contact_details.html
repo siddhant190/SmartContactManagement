@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normal/base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>Contact Details</title>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+	integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+	<section>
+
+		<div class="card" th:if="${contact}">
+
+			<div class="profile-img">
+				<img src="" th:src="@{'/img/'+${contact.image}}"
+					alt="profile-picture" />
+			</div>
+			
+			   
+			   <h4 class="edit"><a th:href="@{'/user/update_contact/'+${cId}}"><i class="fa-solid fa-pen-to-square"></i></a></h4>
+			     
+				<h3 class="name">
+					<strong th:text="${contact.name}+' '+${contact.secondName}"></strong><br />
+				</h3>
+				
+
+				<h5 class="work">
+					<span th:text="${contact.work}"></span>
+				</h5>
+
+				<p class="desc">
+					<span th:utext="${contact.description}"></span>
+				</p>
+				<br />
+
+				<h5 class="phone">
+					<i class="fa-solid fa-phone"></i> <span th:text="${contact.phone}"></span>
+				</h5>
+
+				<h5 class="email">
+					<i class="fa-solid fa-envelope"></i>
+					<a th:href="@{'mailto:'+${contact.email}}"><span th:text="${contact.email}"></span></a>
+				</h5>
+
+
+			<div class="social">
+			
+			<ul>
+				<li><a class="facebook" th:href="@{https://www.facebook.com/}" target="_blank"> <span></span> <span></span>
+						<span></span> <span></span> <i class="fa-brands fa-square-facebook"
+						aria-hidden="true"></i>
+				</a></li>
+				<li><a class="twitter" th:href="@{https://www.twitter.com/}" target="_blank"> <span></span> <span></span>
+						<span></span> <span></span> <i class="fa-brands fa-twitter"
+						aria-hidden="true"></i>
+				</a></li>
+				<li><a class="instagram" th:href="@{https://www.instagram.com/}" target="_blank"> <span></span> <span></span>
+						<span></span> <span></span> <i class="fa-brands fa-instagram"
+						aria-hidden="true"></i>
+				</a></li>
+				<li><a class="google" th:href="@{https://www.google.com/}" target="_blank"> <span></span> <span></span>
+						<span></span> <span></span> <i class="fa-brands fa-google-plus-g"
+						aria-hidden="true"></i>
+				</a></li>
+			</ul>
+			</div>
+			
+			
+
+
+		</div>
+		
+		<h2 class="text-center p-3 m-5 text-white bg-danger" th:unless="${contact}">You don't have permission to see this contact...!!!</h2>
+
+
+
+	</section>
+
+
+</body>
+</html>

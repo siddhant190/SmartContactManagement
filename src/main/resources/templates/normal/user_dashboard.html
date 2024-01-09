@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normal/base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>user dashboard</title>
+</head>
+<body>
+	<section>
+	
+	
+	      
+         
+         <div class="lalala">
+          <div class="wrap">
+	     <h1 class="vulture">Smart<br>&nbsp;&nbsp;&nbsp;&nbsp;Contact<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manager</h1>
+         </div>
+           <div class="meow">
+              
+           </div>
+         </div>
+
+
+		<div class="dashboard text-center">
+
+			<div class="main">
+
+				<div class="main2">
+
+					<br /><h4 class="text-white">Add contact</h4>
+					<p class="mt-3 text-secondary">Add your contacts and manage contacts.</p>
+					<a th:href="@{/user/add_contact}" class="cta"><span>Add contact</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px"><path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline></svg>
+                    </a>
+
+				</div>
+
+			</div>
+
+			<div class="main">
+
+				<div class="main2">
+
+					<br /><h4 class="text-white">Show contact</h4>
+					<p class="mt-3 text-secondary">View your all contacts and update if you want....</p>
+					<div><a th:href="@{/user/show_contact/0}" class="cta"><span>Contacts</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px"><path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline></svg>
+                    </a></div>
+
+				</div>
+
+
+			</div>
+
+			<div class="main">
+
+				<div class="main2">
+
+					<br /><h4 class="text-white">Profile</h4>
+					<p class="mt-3 text-secondary">See your profile and check account details ....</p>
+					<a th:href="@{/user/profile}" class="cta"><span>Profile</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px"><path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline></svg>
+                    </a>
+
+				</div>
+
+
+			</div>
+
+
+
+
+
+
+
+		</div>
+
+	</section>
+
+
+</body>
+</html>

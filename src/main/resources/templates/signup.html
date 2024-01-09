@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>signup page</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<section class="register-banner">
+
+		<div class="register-container">
+
+			<div th:if="${session.message}" class="alert text-center "
+				th:classappend="${session.message.type}" role="alert">
+				<p th:text="${session.message.content}"></p>
+				<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+			</div>
+
+             <div class="logo text-center">
+				<img style="width: 40px" th:src="@{/img/registration_logo.png}" alt="">
+				<h2>Register here</h2>
+			</div>
+			<form novalidate action="#" th:action="@{/do_register}" method="post"
+				th:object="${user}" enctype="multipart/form-data">
+				<div class="input-field">
+					<label for="name">Name</label> 
+					<input type="text" id="name" 
+					      name="name"
+						  th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}"
+						  th:value="${user.name}">
+						  <div th:each="e:${#fields.errors('name')}" th:text="${e}" 
+                             id="validationServerUsernameFeedback" class="invalid-feedback"></div>
+					
+				</div>
+				<div class="input-field">
+					<label for="email">Email</label> <input type="email" id="email"
+						name="email"
+						th:classappend="${#fields.hasErrors('email')?'is-invalid':''}"
+						th:value="${user.email}" required>
+					<div class="invalid-feedback"
+						th:each="e1:${#fields.errors('email')}" th:text="${e1}"></div>
+				</div>
+				<div class="input-field">
+					<label for="password">Password</label> <input type="password"
+						id="password" name="password"
+						th:classappend="${#fields.hasErrors('password')?'is-invalid':''}"
+						required>
+					<div class="invalid-feedback"
+						th:each="e2:${#fields.errors('password')}" th:text="${e2}"></div>
+				</div>
+				<div class="input-field">
+					<label for="about">About</label>
+					<textarea rows="4" cols="52" id="about" name="about"
+						th:value="${user.about}"
+						placeholder="Write something about yourself..."></textarea>
+				</div>
+				
+				<div class="input-field custom-file">
+				<label for="image">Profile photo</label>
+                <input name="profileImage" class="input" type="file" id="image">        
+              </div>
+
+				<div class="form-group form-check text-center mt-3">
+					<input type="checkbox" class="agreement" id="agreement"
+						name="agreement">
+					Accept terms and contions.
+				</div>
+
+				<div class="text-center">
+					<button class="btn btn-Home bg-primary text-white my-2 my-sm-0"
+						type="submit">Submit</button>
+					<button class="btn btn-Home bg-primary text-white my-2 my-sm-0"
+						type="reset">Reset</button>
+				</div>
+			</form>
+
+		</div>
+
+
+	</section>
+
+</body>
+</html>
